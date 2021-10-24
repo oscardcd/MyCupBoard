@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_cupboard/data/services/db_service.dart';
+
 
 void main() {
   runApp(const MyCupBoard());
@@ -39,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+  DBService.db.database;
     return Scaffold(
       appBar: AppBar(
              title: Text(widget.title),

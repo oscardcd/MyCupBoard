@@ -18,6 +18,10 @@ dependencies:
   path:
   freezed_annotation: ^0.14.3
   injectable: ^1.4.1
+  path_provider:
+  #qr_code_scanner: ^0.5.2
+  flutter_barcode_scanner: ^2.0.0
+
 
 dev_dependencies:
   flutter_test:
