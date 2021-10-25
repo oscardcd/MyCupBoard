@@ -1,4 +1,6 @@
 
+
+
 import 'dart:io';
 
 import 'package:path/path.dart';
@@ -12,7 +14,7 @@ class DBService{
   DBService._();
 
   Future<Database> get database async {
-    if(database!=null) return _database!;
+    if(_database!=null) return _database!;
 
     _database = await initDB();
 
@@ -25,13 +27,20 @@ class DBService{
       final path= join(documentsDirectory.path,'mycupboard.db');
       print(path);
 
-      return await openDatabase(path,version: 1,onOpen: (db){},onCreate: (db,version)async{
+      return await openDatabase(path,version: 4,onOpen: (db){},onCreate: (db,version)async{
         await db.execute('''
-          CREATE TABLE product(
+          create TABLE product(
             id INTEGER PRIMARY KEY,
             name TEXT,
-            marca TEXT,
-            cantidad INTEGER,
+            brand TEXT,
+            amount INTEGER,
+            details TEXT
+          );
+
+          create table category(
+            id integer primary key,
+            name text,
+            description text,
           )
         ''');
       });
