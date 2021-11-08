@@ -1,22 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'product.dart';
+part of 'status.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
+_$_Status _$$_StatusFromJson(Map<String, dynamic> json) => _$_Status(
       id: json['id'] as int?,
       name: json['name'] as String,
-      barCode: json['barCode'] as String?,
-      category: json['category'] as int?,
     );
 
-Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_StatusToJson(_$_Status instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'barCode': instance.barCode,
-      'category': instance.category,
     };

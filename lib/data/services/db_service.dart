@@ -1,49 +1,55 @@
-
-
-
 import 'dart:io';
 
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
-class DBService{
+class DBService {
+  DBService._();
+
   static Database? _database;
   static final DBService db = DBService._();
 
-  DBService._();
-
   Future<Database> get database async {
-    if(_database!=null) return _database!;
+    if (_database != null) return _database!;
 
     _database = await initDB();
 
     return _database!;
   }
 
-  Future<Database> initDB() async{
-      Directory documentsDirectory = await getApplicationDocumentsDirectory();
+  Future<Database> initDB() async {
+    Directory documentsDirectory = await getApplicationDocumentsDirectory();
 
-      final path= join(documentsDirectory.path,'mycupboard.db');
-      print(path);
+    final path = join(documentsDirectory.path, 'mycupboard.db');
 
-      return await openDatabase(path,version: 4,onOpen: (db){},onCreate: (db,version)async{
-        await db.execute('''
-          create TABLE product(
+    return await openDatabase(path, version: 1, onOpen: (db) {}, onCreate: (db, version) async {
+      await db.execute('''
+          CREATE TABLE product(
             id INTEGER PRIMARY KEY,
             name TEXT,
-            brand TEXT,
-            amount INTEGER,
-            details TEXT
+            barcode TEXT,
+            category INTEGER
           );
 
-          create table category(
-            id integer primary key,
-            name text,
-            description text,
-          )
+          CREATE TABLE category(
+            id integer PRIMARY KEY,
+            name TEXT
+          );
+
+          CREATE TABLE cupboard(
+            id integer PRIMARY KEY,
+            id_product INT,
+            expirate_date INT,
+            quantity INT,
+            id_status INT
+          );
+
+          CREATE TABLE status(
+            id INTEGER PRIMARY KEY,
+            name TEXT
+          );
         ''');
-      });
+    });
   }
 }
-
