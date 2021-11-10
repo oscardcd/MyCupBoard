@@ -56,6 +56,12 @@ class ProductDataImpl implements ProductData {
   }
 
   @override
+  Future<Product> updateProduct(Product product, String name) {
+    // TODO: implement updateProduct
+    throw UnimplementedError();
+  }
+
+  @override
   Future<Product> getProductByBarCode(String barCode) {
     // TODO: implement getProductByBarCode
     throw UnimplementedError();
@@ -64,12 +70,6 @@ class ProductDataImpl implements ProductData {
   @override
   Future<Product> getProductByName(String productName) {
     // TODO: implement getProductByName
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Product> updateProduct(Product product, String name) {
-    // TODO: implement updateProduct
     throw UnimplementedError();
   }
 

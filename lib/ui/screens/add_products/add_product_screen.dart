@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:my_cupboard/domain/bloc/product/product_bloc.dart';
+import 'package:my_cupboard/ui/screens/add_products/qr_read.dart';
 import 'package:my_cupboard/ui/widgets/custom_button.dart';
 import 'package:my_cupboard/ui/widgets/custom_input.dart';
+import 'package:my_cupboard/ui/widgets/custom_input_search.dart';
 
 class AddProductScreen extends StatefulWidget {
   const AddProductScreen({Key? key}) : super(key: key);
@@ -30,9 +32,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomInput(
-                        placeHolder: 'producto',
+                        title: 'nombre del producto',
+                        textCapitalization: TextCapitalization.words,
+                        placeHolder: 'product',
                         controller: bloc.productNameController,
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -41,9 +46,18 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         },
                       ),
                       SizedBox(height: 20.h),
+                      CustomSearchInput(
+                        title: 'Codigo de barras',
+                        hint: 'barcode',
+                        controller: bloc.barCodeController,
+                        onSearch: (value) {
+                          context.read<ProductBloc>().add(const ProductEvent.readBarCode());
+                        },
+                      ),
+                      SizedBox(height: 20.h),
                       CustomButton.primary(
                         label: 'guardar',
-                        onPressed: () async {
+                        onPressed: () {
                           if (_addProductForm.currentState!.validate()) {
                             context.read<ProductBloc>().add(const ProductEvent.addProduct());
                             ScaffoldMessenger.of(context)
@@ -53,16 +67,24 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       ),
                       CustomButton.secondary(
                         label: 'consultar',
-                        onPressed: () async {
+                        onPressed: () {
                           context.read<ProductBloc>().add(const ProductEvent.getAllProducts());
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Processing Data')));
                         },
                       ),
                       CustomButton.secondary(
                         label: 'eliminar',
-                        onPressed: () async {
+                        onPressed: () {
                           context.read<ProductBloc>().add(const ProductEvent.deleteProduct());
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Processing Data')));
+                        },
+                      ),
+                      CustomButton.secondary(
+                        label: 'addProduc with qr',
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const QRViewExample(),
+                          ));
                         },
                       ),
                       Expanded(

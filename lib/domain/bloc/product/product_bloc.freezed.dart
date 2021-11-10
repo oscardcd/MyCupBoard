@@ -21,6 +21,10 @@ class _$ProductEventTearOff {
     return const _Started();
   }
 
+  _ReadBarCode readBarCode() {
+    return const _ReadBarCode();
+  }
+
   _AddProduct addProduct() {
     return const _AddProduct();
   }
@@ -42,6 +46,7 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() readBarCode,
     required TResult Function() addProduct,
     required TResult Function() getAllProducts,
     required TResult Function() deleteProduct,
@@ -50,6 +55,7 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? readBarCode,
     TResult Function()? addProduct,
     TResult Function()? getAllProducts,
     TResult Function()? deleteProduct,
@@ -58,6 +64,7 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? readBarCode,
     TResult Function()? addProduct,
     TResult Function()? getAllProducts,
     TResult Function()? deleteProduct,
@@ -67,6 +74,7 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ReadBarCode value) readBarCode,
     required TResult Function(_AddProduct value) addProduct,
     required TResult Function(_GetAllProducts value) getAllProducts,
     required TResult Function(_DeleteProduct value) deleteProduct,
@@ -75,6 +83,7 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
     TResult Function(_AddProduct value)? addProduct,
     TResult Function(_GetAllProducts value)? getAllProducts,
     TResult Function(_DeleteProduct value)? deleteProduct,
@@ -83,6 +92,7 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
     TResult Function(_AddProduct value)? addProduct,
     TResult Function(_GetAllProducts value)? getAllProducts,
     TResult Function(_DeleteProduct value)? deleteProduct,
@@ -145,6 +155,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() readBarCode,
     required TResult Function() addProduct,
     required TResult Function() getAllProducts,
     required TResult Function() deleteProduct,
@@ -156,6 +167,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? readBarCode,
     TResult Function()? addProduct,
     TResult Function()? getAllProducts,
     TResult Function()? deleteProduct,
@@ -167,6 +179,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? readBarCode,
     TResult Function()? addProduct,
     TResult Function()? getAllProducts,
     TResult Function()? deleteProduct,
@@ -182,6 +195,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ReadBarCode value) readBarCode,
     required TResult Function(_AddProduct value) addProduct,
     required TResult Function(_GetAllProducts value) getAllProducts,
     required TResult Function(_DeleteProduct value) deleteProduct,
@@ -193,6 +207,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
     TResult Function(_AddProduct value)? addProduct,
     TResult Function(_GetAllProducts value)? getAllProducts,
     TResult Function(_DeleteProduct value)? deleteProduct,
@@ -204,6 +219,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
     TResult Function(_AddProduct value)? addProduct,
     TResult Function(_GetAllProducts value)? getAllProducts,
     TResult Function(_DeleteProduct value)? deleteProduct,
@@ -218,6 +234,127 @@ class _$_Started implements _Started {
 
 abstract class _Started implements ProductEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$ReadBarCodeCopyWith<$Res> {
+  factory _$ReadBarCodeCopyWith(
+          _ReadBarCode value, $Res Function(_ReadBarCode) then) =
+      __$ReadBarCodeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ReadBarCodeCopyWithImpl<$Res> extends _$ProductEventCopyWithImpl<$Res>
+    implements _$ReadBarCodeCopyWith<$Res> {
+  __$ReadBarCodeCopyWithImpl(
+      _ReadBarCode _value, $Res Function(_ReadBarCode) _then)
+      : super(_value, (v) => _then(v as _ReadBarCode));
+
+  @override
+  _ReadBarCode get _value => super._value as _ReadBarCode;
+}
+
+/// @nodoc
+
+class _$_ReadBarCode implements _ReadBarCode {
+  const _$_ReadBarCode();
+
+  @override
+  String toString() {
+    return 'ProductEvent.readBarCode()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _ReadBarCode);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() readBarCode,
+    required TResult Function() addProduct,
+    required TResult Function() getAllProducts,
+    required TResult Function() deleteProduct,
+  }) {
+    return readBarCode();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? readBarCode,
+    TResult Function()? addProduct,
+    TResult Function()? getAllProducts,
+    TResult Function()? deleteProduct,
+  }) {
+    return readBarCode?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? readBarCode,
+    TResult Function()? addProduct,
+    TResult Function()? getAllProducts,
+    TResult Function()? deleteProduct,
+    required TResult orElse(),
+  }) {
+    if (readBarCode != null) {
+      return readBarCode();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ReadBarCode value) readBarCode,
+    required TResult Function(_AddProduct value) addProduct,
+    required TResult Function(_GetAllProducts value) getAllProducts,
+    required TResult Function(_DeleteProduct value) deleteProduct,
+  }) {
+    return readBarCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
+    TResult Function(_AddProduct value)? addProduct,
+    TResult Function(_GetAllProducts value)? getAllProducts,
+    TResult Function(_DeleteProduct value)? deleteProduct,
+  }) {
+    return readBarCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
+    TResult Function(_AddProduct value)? addProduct,
+    TResult Function(_GetAllProducts value)? getAllProducts,
+    TResult Function(_DeleteProduct value)? deleteProduct,
+    required TResult orElse(),
+  }) {
+    if (readBarCode != null) {
+      return readBarCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReadBarCode implements ProductEvent {
+  const factory _ReadBarCode() = _$_ReadBarCode;
 }
 
 /// @nodoc
@@ -260,6 +397,7 @@ class _$_AddProduct implements _AddProduct {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() readBarCode,
     required TResult Function() addProduct,
     required TResult Function() getAllProducts,
     required TResult Function() deleteProduct,
@@ -271,6 +409,7 @@ class _$_AddProduct implements _AddProduct {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? readBarCode,
     TResult Function()? addProduct,
     TResult Function()? getAllProducts,
     TResult Function()? deleteProduct,
@@ -282,6 +421,7 @@ class _$_AddProduct implements _AddProduct {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? readBarCode,
     TResult Function()? addProduct,
     TResult Function()? getAllProducts,
     TResult Function()? deleteProduct,
@@ -297,6 +437,7 @@ class _$_AddProduct implements _AddProduct {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ReadBarCode value) readBarCode,
     required TResult Function(_AddProduct value) addProduct,
     required TResult Function(_GetAllProducts value) getAllProducts,
     required TResult Function(_DeleteProduct value) deleteProduct,
@@ -308,6 +449,7 @@ class _$_AddProduct implements _AddProduct {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
     TResult Function(_AddProduct value)? addProduct,
     TResult Function(_GetAllProducts value)? getAllProducts,
     TResult Function(_DeleteProduct value)? deleteProduct,
@@ -319,6 +461,7 @@ class _$_AddProduct implements _AddProduct {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
     TResult Function(_AddProduct value)? addProduct,
     TResult Function(_GetAllProducts value)? getAllProducts,
     TResult Function(_DeleteProduct value)? deleteProduct,
@@ -376,6 +519,7 @@ class _$_GetAllProducts implements _GetAllProducts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() readBarCode,
     required TResult Function() addProduct,
     required TResult Function() getAllProducts,
     required TResult Function() deleteProduct,
@@ -387,6 +531,7 @@ class _$_GetAllProducts implements _GetAllProducts {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? readBarCode,
     TResult Function()? addProduct,
     TResult Function()? getAllProducts,
     TResult Function()? deleteProduct,
@@ -398,6 +543,7 @@ class _$_GetAllProducts implements _GetAllProducts {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? readBarCode,
     TResult Function()? addProduct,
     TResult Function()? getAllProducts,
     TResult Function()? deleteProduct,
@@ -413,6 +559,7 @@ class _$_GetAllProducts implements _GetAllProducts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ReadBarCode value) readBarCode,
     required TResult Function(_AddProduct value) addProduct,
     required TResult Function(_GetAllProducts value) getAllProducts,
     required TResult Function(_DeleteProduct value) deleteProduct,
@@ -424,6 +571,7 @@ class _$_GetAllProducts implements _GetAllProducts {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
     TResult Function(_AddProduct value)? addProduct,
     TResult Function(_GetAllProducts value)? getAllProducts,
     TResult Function(_DeleteProduct value)? deleteProduct,
@@ -435,6 +583,7 @@ class _$_GetAllProducts implements _GetAllProducts {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
     TResult Function(_AddProduct value)? addProduct,
     TResult Function(_GetAllProducts value)? getAllProducts,
     TResult Function(_DeleteProduct value)? deleteProduct,
@@ -492,6 +641,7 @@ class _$_DeleteProduct implements _DeleteProduct {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() readBarCode,
     required TResult Function() addProduct,
     required TResult Function() getAllProducts,
     required TResult Function() deleteProduct,
@@ -503,6 +653,7 @@ class _$_DeleteProduct implements _DeleteProduct {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? readBarCode,
     TResult Function()? addProduct,
     TResult Function()? getAllProducts,
     TResult Function()? deleteProduct,
@@ -514,6 +665,7 @@ class _$_DeleteProduct implements _DeleteProduct {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? readBarCode,
     TResult Function()? addProduct,
     TResult Function()? getAllProducts,
     TResult Function()? deleteProduct,
@@ -529,6 +681,7 @@ class _$_DeleteProduct implements _DeleteProduct {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_ReadBarCode value) readBarCode,
     required TResult Function(_AddProduct value) addProduct,
     required TResult Function(_GetAllProducts value) getAllProducts,
     required TResult Function(_DeleteProduct value) deleteProduct,
@@ -540,6 +693,7 @@ class _$_DeleteProduct implements _DeleteProduct {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
     TResult Function(_AddProduct value)? addProduct,
     TResult Function(_GetAllProducts value)? getAllProducts,
     TResult Function(_DeleteProduct value)? deleteProduct,
@@ -551,6 +705,7 @@ class _$_DeleteProduct implements _DeleteProduct {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_ReadBarCode value)? readBarCode,
     TResult Function(_AddProduct value)? addProduct,
     TResult Function(_GetAllProducts value)? getAllProducts,
     TResult Function(_DeleteProduct value)? deleteProduct,

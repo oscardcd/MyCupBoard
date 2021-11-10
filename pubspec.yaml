@@ -23,7 +23,6 @@ dependencies:
   path:
   path_provider:
   sqflite:
-  #qr_code_scanner: ^0.5.2
 
 
 dev_dependencies:

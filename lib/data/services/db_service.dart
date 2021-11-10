@@ -23,12 +23,12 @@ class DBService {
 
     final path = join(documentsDirectory.path, 'mycupboard.db');
 
-    return await openDatabase(path, version: 1, onOpen: (db) {}, onCreate: (db, version) async {
+    return await openDatabase(path, version: 2, onOpen: (db) {}, onCreate: (db, version) async {
       await db.execute('''
           CREATE TABLE product(
             id INTEGER PRIMARY KEY,
             name TEXT,
-            barcode TEXT,
+            barCode TEXT,
             category INTEGER
           );
 

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomInput extends StatelessWidget {
   const CustomInput({
@@ -20,9 +21,11 @@ class CustomInput extends StatelessWidget {
     this.onChanged,
     this.backgroundColor,
     this.textCapitalization = TextCapitalization.none,
+    this.title,
   }) : super(key: key);
 
   final bool autofocus;
+  final String? title;
   final AutovalidateMode? autovalidateMode;
   final TextEditingController? controller;
   final FocusNode? focusNode;
@@ -51,38 +54,53 @@ class CustomInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(6.0),
-            color: backgroundColor,
-          ),
-          child: TextFormField(
-            autofocus: autofocus,
-            autovalidateMode: autovalidateMode,
-            controller: controller,
-            textCapitalization: textCapitalization,
-            decoration: InputDecoration(
-              suffixIcon: suffixWidget,
-              hintText: placeHolder,
-              isDense: true,
-              hintStyle: Theme.of(context).textTheme.bodyText2!.copyWith(
-                    color: Colors.black.withOpacity(.3),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (title != null)
+              Column(
+                children: [
+                  Text(
+                    title ?? '',
+                    style: Theme.of(context).textTheme.headline5,
                   ),
-              enabledBorder: _getOutlineBorder(),
-              focusedBorder: _getOutlineBorder(),
-              errorBorder: _getOutlineBorder(isValid: false),
-              focusedErrorBorder: _getOutlineBorder(isValid: false),
+                  SizedBox(height: 8.h),
+                ],
+              ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6.0),
+                color: backgroundColor,
+              ),
+              child: TextFormField(
+                autofocus: autofocus,
+                autovalidateMode: autovalidateMode,
+                controller: controller,
+                textCapitalization: textCapitalization,
+                decoration: InputDecoration(
+                  suffixIcon: suffixWidget,
+                  hintText: placeHolder,
+                  isDense: true,
+                  hintStyle: Theme.of(context).textTheme.bodyText2!.copyWith(
+                        color: Colors.black.withOpacity(.3),
+                      ),
+                  enabledBorder: _getOutlineBorder(),
+                  focusedBorder: _getOutlineBorder(),
+                  errorBorder: _getOutlineBorder(isValid: false),
+                  focusedErrorBorder: _getOutlineBorder(isValid: false),
+                ),
+                focusNode: focusNode,
+                inputFormatters: inputFormatters,
+                keyboardType: keyboardType ?? TextInputType.text,
+                maxLines: maxLines,
+                minLines: minLines,
+                onFieldSubmitted: onSubmitted,
+                style: Theme.of(context).textTheme.bodyText2,
+                validator: validator,
+                onChanged: onChanged,
+              ),
             ),
-            focusNode: focusNode,
-            inputFormatters: inputFormatters,
-            keyboardType: keyboardType ?? TextInputType.text,
-            maxLines: maxLines,
-            minLines: minLines,
-            onFieldSubmitted: onSubmitted,
-            style: Theme.of(context).textTheme.bodyText2,
-            validator: validator,
-            onChanged: onChanged,
-          ),
+          ],
         ),
       ],
     );
