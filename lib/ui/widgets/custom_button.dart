@@ -71,7 +71,7 @@ class CustomButton extends StatelessWidget {
     return CustomButton._(
       key: key,
       label: label,
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.lightCyan,
       labelColor: AppColors.black,
       onPressed: onPressed,
       width: width,

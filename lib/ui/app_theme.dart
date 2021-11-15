@@ -15,7 +15,7 @@ abstract class AppTheme {
     FontStyle fontStyle = FontStyle.normal,
     FontWeight fontWeight = FontWeight.normal,
   }) {
-    return GoogleFonts.ibmPlexSans(
+    return GoogleFonts.roboto(
       textStyle: TextStyle(
         color: color,
         fontSize: fontSize ?? 16.sp,
@@ -108,14 +108,14 @@ abstract class AppTheme {
       size: 18.0,
     ),
     textTheme: TextTheme(
-      headline1: GoogleFonts.sourceSerifPro(
+      headline1: GoogleFonts.shanti(
         textStyle: TextStyle(
           color: AppColors.blue,
           fontSize: 37.sp,
           fontWeight: FontWeight.bold,
         ),
       ),
-      headline2: GoogleFonts.sourceSerifPro(
+      headline2: GoogleFonts.simonetta(
         textStyle: TextStyle(
           color: AppColors.blue,
           fontSize: 34.sp,

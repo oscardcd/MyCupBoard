@@ -4,12 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:my_cupboard/domain/bloc/product/product_bloc.dart';
 import 'package:my_cupboard/ui/screens/add_products/qr_read.dart';
+import 'package:my_cupboard/ui/widgets/appbar_menu.dart';
 import 'package:my_cupboard/ui/widgets/custom_button.dart';
+import 'package:my_cupboard/ui/widgets/custom_drawer.dart';
 import 'package:my_cupboard/ui/widgets/custom_input.dart';
 import 'package:my_cupboard/ui/widgets/custom_input_search.dart';
 
 class AddProductScreen extends StatefulWidget {
   const AddProductScreen({Key? key}) : super(key: key);
+  static const String routeName = '/add-product';
 
   @override
   _AddProductScreenState createState() => _AddProductScreenState();
@@ -23,6 +26,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
     return BlocProvider(
       create: (_) => GetIt.I.get<ProductBloc>()..add(const ProductEvent.started()),
       child: Scaffold(
+        drawer: const CustomDrawer(),
+        appBar: AppBarMenu(),
         body: SafeArea(
           child: BlocBuilder<ProductBloc, ProductState>(
             builder: (context, state) {

@@ -78,6 +78,10 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       productId = null;
       final response = await _productData.deleteProduct(_productNameController.text, productId);
     }
+
+    final products = await _productData.getAllProdcut();
+
+    emit(state.copyWith(products: products));
   }
 
   void _cleanInputs() {
