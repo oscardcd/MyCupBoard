@@ -9,6 +9,16 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/gen_l10n/"
+  errors:
+    # TODO: Remove invalid_annotation_target after this is solved:
+    #   - https://github.com/rrousselGit/freezed/issues/488
+    invalid_annotation_target: ignore 
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
@@ -23,7 +33,34 @@ linter:
   # producing the lint.
   rules:
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
-
+    prefer_single_quotes: true # Uncomment to enable the `prefer_single_quotes` rule
+    library_names: true # Name libraries using lowercase_with_underscores
+    always_use_package_imports: true
+    avoid_catches_without_on_clauses: false #avoid unexpected errors
+    avoid_catching_errors: true #better to catch exceptions
+    avoid_empty_else: true
+    avoid_classes_with_only_static_members: false #AVOID defining a class that contains only static members.
+    avoid_redundant_argument_values: true
+    avoid_returning_null: true
+    sort_pub_dependencies: true
+    avoid_null_checks_in_equality_operators: true
+    sort_constructors_first: true
+    empty_statements: true
+    unnecessary_parenthesis: true
+    unnecessary_this: true
+    unnecessary_const: false
+    unnecessary_overrides: true
+    unnecessary_lambdas: false
+    unnecessary_brace_in_strings_interps: true
+    use_key_in_widget_constructors: false
+    prefer_const_constructors: true
+    not_initialized_non_nullable_instance_field: false
+    # Formatting
+    file_names: false
+    lines_longer_than_120_chars: true
+    curly_branches_in_flow_control_structures: true
+    # doc comments
+    slash_for_doc_comments: true
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+
