@@ -726,9 +726,11 @@ abstract class _DeleteProduct implements ProductEvent {
 class _$ProductStateTearOff {
   const _$ProductStateTearOff();
 
-  _ProductState call({required List<Product> products}) {
+  _ProductState call(
+      {required List<Product> products, required List<Categorie> categories}) {
     return _ProductState(
       products: products,
+      categories: categories,
     );
   }
 }
@@ -739,6 +741,7 @@ const $ProductState = _$ProductStateTearOff();
 /// @nodoc
 mixin _$ProductState {
   List<Product> get products => throw _privateConstructorUsedError;
+  List<Categorie> get categories => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductStateCopyWith<ProductState> get copyWith =>
@@ -750,7 +753,7 @@ abstract class $ProductStateCopyWith<$Res> {
   factory $ProductStateCopyWith(
           ProductState value, $Res Function(ProductState) then) =
       _$ProductStateCopyWithImpl<$Res>;
-  $Res call({List<Product> products});
+  $Res call({List<Product> products, List<Categorie> categories});
 }
 
 /// @nodoc
@@ -764,12 +767,17 @@ class _$ProductStateCopyWithImpl<$Res> implements $ProductStateCopyWith<$Res> {
   @override
   $Res call({
     Object? products = freezed,
+    Object? categories = freezed,
   }) {
     return _then(_value.copyWith(
       products: products == freezed
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      categories: categories == freezed
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<Categorie>,
     ));
   }
 }
@@ -781,7 +789,7 @@ abstract class _$ProductStateCopyWith<$Res>
           _ProductState value, $Res Function(_ProductState) then) =
       __$ProductStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<Product> products});
+  $Res call({List<Product> products, List<Categorie> categories});
 }
 
 /// @nodoc
@@ -797,12 +805,17 @@ class __$ProductStateCopyWithImpl<$Res> extends _$ProductStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? products = freezed,
+    Object? categories = freezed,
   }) {
     return _then(_ProductState(
       products: products == freezed
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      categories: categories == freezed
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<Categorie>,
     ));
   }
 }
@@ -810,14 +823,16 @@ class __$ProductStateCopyWithImpl<$Res> extends _$ProductStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ProductState implements _ProductState {
-  const _$_ProductState({required this.products});
+  const _$_ProductState({required this.products, required this.categories});
 
   @override
   final List<Product> products;
+  @override
+  final List<Categorie> categories;
 
   @override
   String toString() {
-    return 'ProductState(products: $products)';
+    return 'ProductState(products: $products, categories: $categories)';
   }
 
   @override
@@ -826,12 +841,17 @@ class _$_ProductState implements _ProductState {
         (other is _ProductState &&
             (identical(other.products, products) ||
                 const DeepCollectionEquality()
-                    .equals(other.products, products)));
+                    .equals(other.products, products)) &&
+            (identical(other.categories, categories) ||
+                const DeepCollectionEquality()
+                    .equals(other.categories, categories)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(products);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(products) ^
+      const DeepCollectionEquality().hash(categories);
 
   @JsonKey(ignore: true)
   @override
@@ -840,11 +860,14 @@ class _$_ProductState implements _ProductState {
 }
 
 abstract class _ProductState implements ProductState {
-  const factory _ProductState({required List<Product> products}) =
-      _$_ProductState;
+  const factory _ProductState(
+      {required List<Product> products,
+      required List<Categorie> categories}) = _$_ProductState;
 
   @override
   List<Product> get products => throw _privateConstructorUsedError;
+  @override
+  List<Categorie> get categories => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ProductStateCopyWith<_ProductState> get copyWith =>

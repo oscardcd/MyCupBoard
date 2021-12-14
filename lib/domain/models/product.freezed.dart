@@ -22,10 +22,7 @@ class _$ProductTearOff {
   const _$ProductTearOff();
 
   _Product call(
-      {int? id,
-      required String name,
-      @JsonKey(name: 'barcode') String? barCode,
-      int? category}) {
+      {int? id, required String name, String? barCode, int? category}) {
     return _Product(
       id: id,
       name: name,
@@ -46,7 +43,6 @@ const $Product = _$ProductTearOff();
 mixin _$Product {
   int? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'barcode')
   String? get barCode => throw _privateConstructorUsedError;
   int? get category => throw _privateConstructorUsedError;
 
@@ -59,11 +55,7 @@ mixin _$Product {
 abstract class $ProductCopyWith<$Res> {
   factory $ProductCopyWith(Product value, $Res Function(Product) then) =
       _$ProductCopyWithImpl<$Res>;
-  $Res call(
-      {int? id,
-      String name,
-      @JsonKey(name: 'barcode') String? barCode,
-      int? category});
+  $Res call({int? id, String name, String? barCode, int? category});
 }
 
 /// @nodoc
@@ -107,11 +99,7 @@ abstract class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
   factory _$ProductCopyWith(_Product value, $Res Function(_Product) then) =
       __$ProductCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {int? id,
-      String name,
-      @JsonKey(name: 'barcode') String? barCode,
-      int? category});
+  $Res call({int? id, String name, String? barCode, int? category});
 }
 
 /// @nodoc
@@ -154,11 +142,7 @@ class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Product implements _Product {
-  _$_Product(
-      {this.id,
-      required this.name,
-      @JsonKey(name: 'barcode') this.barCode,
-      this.category});
+  _$_Product({this.id, required this.name, this.barCode, this.category});
 
   factory _$_Product.fromJson(Map<String, dynamic> json) =>
       _$$_ProductFromJson(json);
@@ -168,7 +152,6 @@ class _$_Product implements _Product {
   @override
   final String name;
   @override
-  @JsonKey(name: 'barcode')
   final String? barCode;
   @override
   final int? category;
@@ -217,7 +200,7 @@ abstract class _Product implements Product {
   factory _Product(
       {int? id,
       required String name,
-      @JsonKey(name: 'barcode') String? barCode,
+      String? barCode,
       int? category}) = _$_Product;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
@@ -227,7 +210,6 @@ abstract class _Product implements Product {
   @override
   String get name => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'barcode')
   String? get barCode => throw _privateConstructorUsedError;
   @override
   int? get category => throw _privateConstructorUsedError;

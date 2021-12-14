@@ -18,10 +18,18 @@ class ProductDataImpl implements ProductData {
   Future<Product?> addProduct(Product product) async {
     try {
       var response = await _service().then(
-        (database) => database.transaction(
-          (txn) async => await txn.rawInsert(
-              '''INSERT INTO product(name,barcode,category) values ('${product.name}','${product.barCode}',${product.category})'''),
-        ),
+        (database) async {
+          final result = await database.rawQuery(
+              '''select * from product where product.name=='${product.name}' or product.barcode=='${product.barCode}';''');
+          if (result.isEmpty) {
+            database.transaction(
+              (txn) async => await txn.rawInsert(
+                  '''INSERT INTO product(name,barcode,category) values ('${product.name}','${product.barCode}',${product.category})'''),
+            );
+          } else {
+            return 0;
+          }
+        },
       );
 
       if (response != 0) return product;
@@ -42,12 +50,8 @@ class ProductDataImpl implements ProductData {
 
   @override
   Future<List<Product>> getAllProdcut() async {
-    final dbService = await DBService.db.database.then((value) => value);
-
     try {
-      var productos = await dbService.rawQuery('SELECT * FROM PRODUCT');
-
-      productos.map((e) => Product.fromJson(e)).toList();
+      var productos = await _service().then((dbService) => dbService.rawQuery('SELECT * FROM product'));
 
       return productos.map((e) => Product.fromJson(e)).toList();
     } catch (e) {

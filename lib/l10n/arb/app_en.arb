@@ -1,8 +1,9 @@
 {
     "@@locale": "en",
     "languaje": "English",
-    "cupboar":"CupBoar",
-    "myCupboar":"My CupBoar",
-    "myProducts":"My Products"
+    "cupboard":"CupBoard",
+    "myCupboar":"My CupBoard",
+    "myProducts":"My Products",
+    "addProducts":"Add Products"
     
 }

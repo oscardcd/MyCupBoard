@@ -1,8 +1,9 @@
 {
     "@@locale": "es",
     "languaje": "Español",
-    "cupboar":"CupBoar",
-    "myCupboar":"My CupBoar",
-    "myProducts":"My Products"
+    "cupboard":"CupBoard",
+    "myCupboar":"Mi alacena",
+    "myProducts":"Mis productos",
+    "addProducts":"Agregar producto"
   
 }

@@ -43,7 +43,7 @@ abstract class AppTheme {
 
   static ThemeData commonTheme = ThemeData.light().copyWith(
     primaryColor: AppColors.white,
-    colorScheme: ThemeData.light().colorScheme.copyWith(secondary: AppColors.orange),
+    colorScheme: ThemeData.light().colorScheme.copyWith(secondary: AppColors.red),
     appBarTheme: ThemeData.light().appBarTheme.copyWith(backgroundColor: AppColors.white),
     cardColor: AppColors.mediumBlue,
     backgroundColor: AppColors.lightBlue,

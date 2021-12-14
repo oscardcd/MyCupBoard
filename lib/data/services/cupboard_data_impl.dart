@@ -1,8 +1,19 @@
+import 'package:my_cupboard/data/services/db_service.dart';
 import 'package:my_cupboard/domain/models/data_result.dart';
 import 'package:my_cupboard/domain/models/cupboard.dart';
 import 'package:my_cupboard/domain/services/cupboar_data.dart';
+import 'package:sqflite/sqflite.dart';
 
 class CupBoardDataImpl implements CupBoardData {
+  Future<Database> _service() async {
+    try {
+      final dbService = await DBService.db.database.then((value) => value);
+      return dbService;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
   @override
   Future<DataResult<Cupboard>> addProductToCupBoard(Cupboard cupBoard) {
     // TODO: implement addProductToCupBoard

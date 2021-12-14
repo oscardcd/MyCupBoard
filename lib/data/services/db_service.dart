@@ -14,7 +14,6 @@ class DBService {
     if (_database != null) return _database!;
 
     _database = await initDB();
-
     return _database!;
   }
 
@@ -23,7 +22,7 @@ class DBService {
 
     final path = join(documentsDirectory.path, 'mycupboard.db');
 
-    return await openDatabase(path, version: 2, onOpen: (db) {}, onCreate: (db, version) async {
+    return await openDatabase(path, version: 1, onOpen: (db) {}, onCreate: (db, version) async {
       await db.execute('''
           CREATE TABLE product(
             id INTEGER PRIMARY KEY,
@@ -32,24 +31,30 @@ class DBService {
             category INTEGER
           );
 
-          CREATE TABLE category(
+         
+        ''');
+      await db.execute('''
+           CREATE TABLE categories(
             id integer PRIMARY KEY,
             name TEXT
           );
 
-          CREATE TABLE cupboard(
+         ''');
+      await db.execute('''
+            CREATE TABLE cupboard(
             id integer PRIMARY KEY,
             id_product INT,
             expirate_date INT,
             quantity INT,
             id_status INT
           );
-
-          CREATE TABLE status(
+         ''');
+      await db.execute('''
+             CREATE TABLE status(
             id INTEGER PRIMARY KEY,
             name TEXT
           );
-        ''');
+         ''');
     });
   }
 }

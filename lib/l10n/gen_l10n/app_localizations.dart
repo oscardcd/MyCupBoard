@@ -100,16 +100,16 @@ abstract class AppLocalizations {
   /// **'English'**
   String get languaje;
 
-  /// No description provided for @cupboar.
+  /// No description provided for @cupboard.
   ///
   /// In en, this message translates to:
-  /// **'CupBoar'**
-  String get cupboar;
+  /// **'CupBoard'**
+  String get cupboard;
 
   /// No description provided for @myCupboar.
   ///
   /// In en, this message translates to:
-  /// **'My CupBoar'**
+  /// **'My CupBoard'**
   String get myCupboar;
 
   /// No description provided for @myProducts.
@@ -117,6 +117,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My Products'**
   String get myProducts;
+
+  /// No description provided for @addProducts.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Products'**
+  String get addProducts;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

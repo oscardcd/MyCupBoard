@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_cupboard/l10n/l10n.dart';
 import 'package:my_cupboard/ui/app_theme.dart';
+import 'package:my_cupboard/ui/screens/add_categories/add_categories_screen.dart';
 import 'package:my_cupboard/ui/screens/add_products/add_product_screen.dart';
 import 'package:my_cupboard/ui/screens/information/information_screen.dart';
+import 'package:path/path.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -27,7 +29,7 @@ class CustomDrawer extends StatelessWidget {
                   image: DecorationImage(fit: BoxFit.cover, image: AssetImage('assets/images/alimentos.jpeg'))),
               child: Align(
                 child: Text(
-                  l10n.cupboar,
+                  l10n.cupboard,
                   style: Theme.of(context).textTheme.headline1!.copyWith(color: AppColors.white),
                 ),
               ),
@@ -52,14 +54,15 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   DrawerItem(
                     icon: Icons.add_shopping_cart_sharp,
-                    text: 'My Cupboard',
+                    text: l10n.myCupboar,
                     onTap: () =>
                         Navigator.push(context, MaterialPageRoute(builder: (context) => const AddProductScreen())),
                   ),
                   DrawerItem(
                     icon: Icons.add_shopping_cart_sharp,
                     text: 'My Categories',
-                    onTap: () {},
+                    onTap: () =>
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const AddCategories())),
                   ),
                   DrawerItem(
                     icon: Icons.close,

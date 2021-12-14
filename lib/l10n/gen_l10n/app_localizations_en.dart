@@ -11,11 +11,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get languaje => 'English';
 
   @override
-  String get cupboar => 'CupBoar';
+  String get cupboard => 'CupBoard';
 
   @override
-  String get myCupboar => 'My CupBoar';
+  String get myCupboar => 'My CupBoard';
 
   @override
   String get myProducts => 'My Products';
+
+  @override
+  String get addProducts => 'Add Products';
 }

@@ -62,7 +62,7 @@ class CustomInput extends StatelessWidget {
                 children: [
                   Text(
                     title ?? '',
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headline3,
                   ),
                   SizedBox(height: 8.h),
                 ],
